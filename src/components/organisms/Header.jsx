@@ -69,14 +69,7 @@ const Header = ({ onCartOpen }) => {
                         {cartItemCount}
                       </span>
                     )}
-                  </button>
-                  
-                  <Link
-                    to="/cart"
-                    className="btn-primary text-sm px-4 py-2"
-                  >
-                    Cart
-                  </Link>
+</button>
                 </>
               )}
             </div>
