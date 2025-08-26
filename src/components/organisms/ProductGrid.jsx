@@ -41,9 +41,9 @@ const ProductGrid = ({ category = "all", limit = null }) => {
     }
   };
 
-  useEffect(() => {
+useEffect(() => {
     loadProducts();
-  }, [category, searchQuery, selectedCategory, selectedAgeGroups, priceRange, limit]);
+  }, [category, searchQuery, selectedCategory, selectedAgeGroups, priceRange]);
 
   if (loading) return <Loading />;
   if (error) return <Error message={error} onRetry={loadProducts} />;
