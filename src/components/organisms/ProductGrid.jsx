@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { productService } from "@/services/api/productService";
 import { useAppContext } from "@/hooks/useAppContext";
@@ -13,19 +13,20 @@ const ProductGrid = ({ category = "all", limit = null }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  const { searchQuery, selectedCategory, selectedAgeGroups, priceRange } = useAppContext();
+const { searchQuery, selectedCategory, selectedAgeGroups, priceRange } = useAppContext();
+
+// Memoize filters to prevent unnecessary recreations
+  const filters = useMemo(() => ({
+    category: category && category !== "all" ? category : selectedCategory,
+    ageGroups: selectedAgeGroups,
+    priceRange: priceRange,
+    searchQuery: searchQuery
+  }), [category, selectedCategory, selectedAgeGroups, priceRange, searchQuery]);
 
   const loadProducts = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
-      
-      const filters = {
-        category: category !== "all" ? category : selectedCategory,
-        ageGroups: selectedAgeGroups,
-        priceRange: priceRange,
-        searchQuery: searchQuery
-      };
 
       let result = await productService.getAll(filters);
       
@@ -39,9 +40,9 @@ const ProductGrid = ({ category = "all", limit = null }) => {
     } finally {
       setLoading(false);
     }
-  }, [category, selectedCategory, selectedAgeGroups, priceRange, searchQuery, limit]);
+  }, [filters, limit]);
 
-  useEffect(() => {
+useEffect(() => {
     loadProducts();
   }, [loadProducts]);
 
