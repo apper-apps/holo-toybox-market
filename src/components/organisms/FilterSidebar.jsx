@@ -5,15 +5,16 @@ import Button from "@/components/atoms/Button";
 import { useAppContext } from "@/hooks/useAppContext";
 import ApperIcon from "@/components/ApperIcon";
 
-const FilterSidebar = ({ className = "" }) => {
+const FilterSidebar = ({ className = "", preserveCategory = false }) => {
   const { setCategory, setAgeGroups, setPriceRange } = useAppContext();
 
   const clearAllFilters = () => {
-    setCategory("all");
+    if (!preserveCategory) {
+      setCategory("all");
+    }
     setAgeGroups([]);
     setPriceRange([0, 200]);
   };
-
   return (
     <div className={`space-y-6 ${className}`}>
       <div className="flex items-center justify-between">

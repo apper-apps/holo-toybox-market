@@ -104,9 +104,9 @@ const CategoryPage = () => {
           className="lg:col-span-3"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3 }}
+transition={{ delay: 0.3 }}
         >
-          <ProductGrid category={categoryName === "all" ? "all" : categoryInfo.title} />
+          <ProductGrid category={categoryName} />
         </motion.div>
       </div>
     </div>
