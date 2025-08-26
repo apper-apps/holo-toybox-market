@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { productService } from "@/services/api/productService";
-import ProductQuickView from "@/components/molecules/ProductQuickView";
 import { useAppContext } from "@/hooks/useAppContext";
 import ProductCard from "@/components/molecules/ProductCard";
+import ProductQuickView from "@/components/molecules/ProductQuickView";
 import Error from "@/components/ui/Error";
 import Empty from "@/components/ui/Empty";
 import Loading from "@/components/ui/Loading";
@@ -15,7 +15,7 @@ const ProductGrid = ({ category = "all", limit = null }) => {
   
   const { searchQuery, selectedCategory, selectedAgeGroups, priceRange } = useAppContext();
 
-  const loadProducts = async () => {
+  const loadProducts = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -39,11 +39,11 @@ const ProductGrid = ({ category = "all", limit = null }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [category, selectedCategory, selectedAgeGroups, priceRange, searchQuery, limit]);
 
-useEffect(() => {
+  useEffect(() => {
     loadProducts();
-  }, [category, searchQuery, selectedCategory, selectedAgeGroups, priceRange, limit]);
+  }, [loadProducts]);
 
   if (loading) return <Loading />;
   if (error) return <Error message={error} onRetry={loadProducts} />;
