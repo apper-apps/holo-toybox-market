@@ -27,8 +27,14 @@ const ProductCard = ({ product }) => {
     }
   };
 
-  const handleCardClick = () => {
+const handleCardClick = () => {
     navigate(`/product/${product.Id}`);
+  };
+
+  const handleQuickView = (e) => {
+    e.stopPropagation();
+    const { setQuickViewProduct } = useAppContext();
+    setQuickViewProduct(product);
   };
 
   return (
@@ -117,11 +123,16 @@ const ProductCard = ({ product }) => {
                 {isInCart(product.Id) ? "In Cart" : "Add to Cart"}
               </span>
             </Button>
-          ) : (
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
+) : (
+            <Button
+              onClick={handleQuickView}
+              variant="ghost"
+              size="sm"
+              className="flex items-center space-x-2"
+            >
               <ApperIcon name="Eye" size={14} />
-              <span>View Details</span>
-            </div>
+              <span>Quick View</span>
+            </Button>
           )}
         </div>
       </div>

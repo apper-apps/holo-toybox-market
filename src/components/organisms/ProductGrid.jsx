@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { productService } from "@/services/api/productService";
+import ProductQuickView from "@/components/molecules/ProductQuickView";
 import { useAppContext } from "@/hooks/useAppContext";
 import ProductCard from "@/components/molecules/ProductCard";
-import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
 import Empty from "@/components/ui/Empty";
+import Loading from "@/components/ui/Loading";
 
 const ProductGrid = ({ category = "all", limit = null }) => {
   const [products, setProducts] = useState([]);
@@ -48,19 +49,22 @@ const ProductGrid = ({ category = "all", limit = null }) => {
   if (error) return <Error message={error} onRetry={loadProducts} />;
   if (products.length === 0) return <Empty />;
 
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {products.map((product, index) => (
-        <motion.div
-          key={product.Id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1, duration: 0.3 }}
-        >
-          <ProductCard product={product} />
-        </motion.div>
-      ))}
-    </div>
+return (
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {products.map((product, index) => (
+          <motion.div
+            key={product.Id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.3 }}
+          >
+            <ProductCard product={product} />
+          </motion.div>
+        ))}
+      </div>
+      <ProductQuickView />
+    </>
   );
 };
 
