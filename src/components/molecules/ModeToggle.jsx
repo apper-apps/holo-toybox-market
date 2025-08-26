@@ -40,10 +40,6 @@ const ModeToggle = () => {
           <span>Kid Mode</span>
         </motion.button>
       </div>
-      
-      <div className="text-sm text-gray-600">
-        {mode === "parent" ? "Full shopping experience" : "Browse & wishlist only"}
-      </div>
     </div>
   );
 };
