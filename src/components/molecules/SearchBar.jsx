@@ -8,12 +8,28 @@ const SearchBar = ({ onSearch, placeholder = "Search for toys, games, and more..
   const [query, setQuery] = useState("");
   const { setSearchQuery } = useAppContext();
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
     setSearchQuery(query);
     if (onSearch) {
       onSearch(query);
     }
+    // Navigate to category page to show search results
+    if (query.trim()) {
+      window.location.hash = '#/category/all';
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setQuery(value);
+    // Real-time search - update immediately as user types
+    setSearchQuery(value);
+  };
+
+  const handleClear = () => {
+    setQuery('');
+    setSearchQuery('');
   };
 
   return (

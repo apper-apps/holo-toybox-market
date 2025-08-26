@@ -91,14 +91,18 @@ const HomePage = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-6">
-            <Button variant="primary" size="lg" className="w-full sm:w-auto">
-              <ApperIcon name="Search" size={20} className="mr-2" />
-              Start Shopping
-            </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto">
-              <ApperIcon name="Heart" size={20} className="mr-2" />
-              View Wishlist
-            </Button>
+<Link to="/category/all">
+              <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                <ApperIcon name="Search" size={20} className="mr-2" />
+                Start Shopping
+              </Button>
+            </Link>
+            <Link to="/wishlist">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                <ApperIcon name="Heart" size={20} className="mr-2" />
+                View Wishlist
+              </Button>
+            </Link>
           </div>
         </div>
       </motion.div>
