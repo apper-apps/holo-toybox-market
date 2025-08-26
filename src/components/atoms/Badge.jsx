@@ -6,7 +6,7 @@ const Badge = ({
   size = "md",
   className 
 }) => {
-  const variants = {
+const variants = {
     default: "bg-gray-100 text-gray-800",
     primary: "bg-gradient-to-r from-primary to-purple-600 text-white",
     secondary: "bg-gradient-to-r from-secondary to-pink-300 text-gray-800", 
@@ -14,7 +14,10 @@ const Badge = ({
     success: "bg-gradient-to-r from-success to-green-400 text-white",
     warning: "bg-gradient-to-r from-warning to-yellow-400 text-white",
     danger: "bg-gradient-to-r from-error to-red-400 text-white",
-    age: "bg-gradient-to-r from-blue-500 to-indigo-600 text-white"
+    age: "bg-gradient-to-r from-blue-500 to-indigo-600 text-white",
+    inStock: "bg-gradient-to-r from-success to-green-400 text-white",
+    lowStock: "bg-gradient-to-r from-warning to-yellow-400 text-gray-800",
+    outOfStock: "bg-gradient-to-r from-error to-red-400 text-white"
   };
   
   const sizes = {

@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "@/hooks/useAppContext";
+
+// Utility function to determine stock status
+const getStockStatus = (stock) => {
+  if (stock === 0) return { status: 'Out of stock', variant: 'outOfStock' };
+  if (stock <= 5) return { status: 'Low stock', variant: 'lowStock' };
+  return { status: 'In stock', variant: 'inStock' };
+};
 import { toast } from "react-toastify";
 import Button from "@/components/atoms/Button";
 import Badge from "@/components/atoms/Badge";
@@ -32,9 +39,11 @@ const handleCardClick = () => {
   };
 
 const handleQuickView = (e) => {
-    e.stopPropagation();
+e.stopPropagation();
     setQuickViewProduct(product);
   };
+
+  const stockInfo = getStockStatus(product.stock);
 
   return (
     <motion.div
@@ -72,12 +81,19 @@ const handleQuickView = (e) => {
           </motion.div>
         </button>
 
-        <div className="absolute top-3 left-3">
+<div className="absolute top-3 left-3">
           {product.ageGroups.map((age, index) => (
             <Badge key={index} variant="age" size="sm" className="mr-1 mb-1">
               {age}
             </Badge>
           ))}
+        </div>
+        
+        {/* Stock Status Badge */}
+        <div className="absolute top-3 right-3">
+          <Badge variant={stockInfo.variant} size="sm" className="font-semibold shadow-md">
+            {stockInfo.status}
+          </Badge>
         </div>
       </div>
 
