@@ -1,0 +1,306 @@
+[
+  {
+    "Id": 1,
+    "name": "Rainbow Art Kit Deluxe",
+    "price": 29.99,
+    "category": "Art Supplies",
+    "ageGroups": ["4-6", "7-9"],
+    "images": [
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=400&fit=crop"
+    ],
+    "description": "Complete art set with crayons, markers, colored pencils, and drawing pad. Perfect for budding artists!",
+    "safetyInfo": {
+      "certifications": ["CE", "ASTM"],
+      "warnings": ["Small parts - not for children under 3"],
+      "ageRecommendation": "4+ years"
+    },
+    "stock": 25,
+    "tags": ["featured", "creative", "educational", "indoor"]
+  },
+  {
+    "Id": 2,
+    "name": "Wooden Building Blocks Set",
+    "price": 39.99,
+    "category": "Toys",
+    "ageGroups": ["0-3", "4-6"],
+    "images": [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=400&h=400&fit=crop"
+    ],
+    "description": "Natural wooden blocks in various shapes and colors. Develops fine motor skills and creativity.",
+    "safetyInfo": {
+      "certifications": ["FSC", "CE", "CPSIA"],
+      "warnings": ["Adult supervision recommended"],
+      "ageRecommendation": "18m+ years"
+    },
+    "stock": 18,
+    "tags": ["featured", "educational", "natural", "motor-skills"]
+  },
+  {
+    "Id": 3,
+    "name": "School Starter Pack",
+    "price": 24.99,
+    "category": "School Items",
+    "ageGroups": ["4-6", "7-9"],
+    "images": [
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=400&h=400&fit=crop"
+    ],
+    "description": "Essential school supplies including notebooks, pencils, erasers, rulers, and a pencil case.",
+    "safetyInfo": {
+      "certifications": ["CE", "CPSIA"],
+      "warnings": ["Sharp pencils - handle with care"],
+      "ageRecommendation": "4+ years"
+    },
+    "stock": 50,
+    "tags": ["school", "essential", "back-to-school", "organization"]
+  },
+  {
+    "Id": 4,
+    "name": "Space Explorer Puzzle",
+    "price": 18.99,
+    "category": "Games",
+    "ageGroups": ["7-9", "10+"],
+    "images": [
+      "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=400&h=400&fit=crop"
+    ],
+    "description": "1000-piece jigsaw puzzle featuring stunning space imagery. Educational and challenging!",
+    "safetyInfo": {
+      "certifications": ["CE", "ASTM"],
+      "warnings": ["Small pieces - choking hazard for children under 3"],
+      "ageRecommendation": "7+ years"
+    },
+    "stock": 22,
+    "tags": ["featured", "educational", "space", "problem-solving"]
+  },
+  {
+    "Id": 5,
+    "name": "DIY Friendship Bracelet Kit",
+    "price": 15.99,
+    "category": "Craft Kits",
+    "ageGroups": ["7-9", "10+"],
+    "images": [
+      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop"
+    ],
+    "description": "Create beautiful friendship bracelets with colorful threads, beads, and easy instructions.",
+    "safetyInfo": {
+      "certifications": ["CE", "CPSIA"],
+      "warnings": ["Contains small beads"],
+      "ageRecommendation": "6+ years"
+    },
+    "stock": 35,
+    "tags": ["craft", "friendship", "creative", "diy"]
+  },
+  {
+    "Id": 6,
+    "name": "Musical Learning Keyboard",
+    "price": 45.99,
+    "category": "Toys",
+    "ageGroups": ["4-6", "7-9"],
+    "images": [
+      "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1471478331149-c72f17e33c73?w=400&h=400&fit=crop"
+    ],
+    "description": "Interactive keyboard with 37 keys, various sounds, rhythms, and learning songs.",
+    "safetyInfo": {
+      "certifications": ["CE", "FCC", "CPSIA"],
+      "warnings": ["Requires 4 AA batteries (not included)"],
+      "ageRecommendation": "3+ years"
+    },
+    "stock": 12,
+    "tags": ["featured", "musical", "educational", "electronic"]
+  },
+  {
+    "Id": 7,
+    "name": "Glitter Gel Pens Set",
+    "price": 12.99,
+    "category": "Art Supplies",
+    "ageGroups": ["7-9", "10+"],
+    "images": [
+      "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop"
+    ],
+    "description": "Set of 12 glitter gel pens in vibrant colors. Perfect for writing, drawing, and decorating.",
+    "safetyInfo": {
+      "certifications": ["CE", "ASTM"],
+      "warnings": ["Non-toxic ink"],
+      "ageRecommendation": "6+ years"
+    },
+    "stock": 40,
+    "tags": ["art", "writing", "colorful", "glitter"]
+  },
+  {
+    "Id": 8,
+    "name": "Science Experiment Lab Kit",
+    "price": 34.99,
+    "category": "Toys",
+    "ageGroups": ["7-9", "10+"],
+    "images": [
+      "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=400&fit=crop"
+    ],
+    "description": "Conduct 30+ safe science experiments with this comprehensive lab kit. STEM learning made fun!",
+    "safetyInfo": {
+      "certifications": ["CE", "ASTM", "CPSIA"],
+      "warnings": ["Adult supervision required", "Follow instructions carefully"],
+      "ageRecommendation": "8+ years"
+    },
+    "stock": 15,
+    "tags": ["featured", "science", "stem", "educational", "experiments"]
+  },
+  {
+    "Id": 9,
+    "name": "Unicorn Backpack",
+    "price": 22.99,
+    "category": "School Items",
+    "ageGroups": ["4-6", "7-9"],
+    "images": [
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop"
+    ],
+    "description": "Adorable unicorn-themed backpack with multiple compartments and adjustable straps.",
+    "safetyInfo": {
+      "certifications": ["CPSIA", "Oeko-Tex"],
+      "warnings": ["Check weight capacity"],
+      "ageRecommendation": "3+ years"
+    },
+    "stock": 28,
+    "tags": ["school", "unicorn", "backpack", "cute"]
+  },
+  {
+    "Id": 10,
+    "name": "Memory Matching Game",
+    "price": 16.99,
+    "category": "Games",
+    "ageGroups": ["4-6", "7-9"],
+    "images": [
+      "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=400&fit=crop"
+    ],
+    "description": "Classic memory game with 48 colorful cards featuring animals, shapes, and objects.",
+    "safetyInfo": {
+      "certifications": ["CE", "CPSIA"],
+      "warnings": ["Small cards - not suitable for children under 3"],
+      "ageRecommendation": "4+ years"
+    },
+    "stock": 32,
+    "tags": ["memory", "educational", "family-game", "cognitive"]
+  },
+  {
+    "Id": 11,
+    "name": "Origami Paper Craft Set",
+    "price": 13.99,
+    "category": "Craft Kits",
+    "ageGroups": ["7-9", "10+"],
+    "images": [
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400&h=400&fit=crop"
+    ],
+    "description": "Traditional origami papers with step-by-step instruction book. Create 25 different models!",
+    "safetyInfo": {
+      "certifications": ["CE", "FSC"],
+      "warnings": ["Paper edges may be sharp"],
+      "ageRecommendation": "6+ years"
+    },
+    "stock": 24,
+    "tags": ["origami", "paper-craft", "traditional", "patience"]
+  },
+  {
+    "Id": 12,
+    "name": "Magnetic Learning Letters",
+    "price": 19.99,
+    "category": "Toys",
+    "ageGroups": ["0-3", "4-6"],
+    "images": [
+      "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=400&fit=crop"
+    ],
+    "description": "Colorful magnetic alphabet letters for learning and word building. Includes magnetic board.",
+    "safetyInfo": {
+      "certifications": ["CE", "CPSIA", "ASTM"],
+      "warnings": ["Contains magnets - keep away from electronic devices"],
+      "ageRecommendation": "3+ years"
+    },
+    "stock": 20,
+    "tags": ["featured", "alphabet", "learning", "magnetic", "educational"]
+  },
+  {
+    "Id": 13,
+    "name": "Dinosaur Sticker Book",
+    "price": 8.99,
+    "category": "School Items",
+    "ageGroups": ["4-6", "7-9"],
+    "images": [
+      "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1551818255-e6e10975cd40?w=400&h=400&fit=crop"
+    ],
+    "description": "Interactive sticker book with dinosaur scenes and 200+ reusable stickers.",
+    "safetyInfo": {
+      "certifications": ["CE", "CPSIA"],
+      "warnings": ["Stickers may present choking hazard for children under 3"],
+      "ageRecommendation": "3+ years"
+    },
+    "stock": 45,
+    "tags": ["dinosaurs", "stickers", "interactive", "prehistoric"]
+  },
+  {
+    "Id": 14,
+    "name": "Board Game Adventure Quest",
+    "price": 27.99,
+    "category": "Games",
+    "ageGroups": ["7-9", "10+"],
+    "images": [
+      "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1594736797933-d0a9ba7689ad?w=400&h=400&fit=crop"
+    ],
+    "description": "Exciting adventure board game for 2-4 players. Strategic thinking and teamwork required!",
+    "safetyInfo": {
+      "certifications": ["CE", "CPSIA"],
+      "warnings": ["Small game pieces"],
+      "ageRecommendation": "8+ years"
+    },
+    "stock": 16,
+    "tags": ["board-game", "strategy", "family", "adventure"]
+  },
+  {
+    "Id": 15,
+    "name": "Slime Making Kit",
+    "price": 17.99,
+    "category": "Craft Kits",
+    "ageGroups": ["7-9", "10+"],
+    "images": [
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop"
+    ],
+    "description": "Everything needed to make 6 different types of slime. Includes glitter, foam beads, and colors.",
+    "safetyInfo": {
+      "certifications": ["CE", "ASTM"],
+      "warnings": ["Adult supervision recommended", "Wash hands after use"],
+      "ageRecommendation": "6+ years"
+    },
+    "stock": 30,
+    "tags": ["slime", "sensory", "craft", "popular"]
+  },
+  {
+    "Id": 16,
+    "name": "Counting Bears Learning Set",
+    "price": 21.99,
+    "category": "Toys",
+    "ageGroups": ["0-3", "4-6"],
+    "images": [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=400&fit=crop"
+    ],
+    "description": "60 colorful counting bears with sorting cups and activity guide. Perfect for early math skills!",
+    "safetyInfo": {
+      "certifications": ["CE", "CPSIA", "ASTM"],
+      "warnings": ["Small parts - choking hazard for children under 3"],
+      "ageRecommendation": "3+ years"
+    },
+    "stock": 25,
+    "tags": ["featured", "counting", "math", "sorting", "educational"]
+  }
+]
