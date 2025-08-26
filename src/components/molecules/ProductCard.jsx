@@ -8,7 +8,7 @@ import ApperIcon from "@/components/ApperIcon";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  const { mode, addToCart, toggleWishlist, isInWishlist, isInCart } = useAppContext();
+const { mode, addToCart, toggleWishlist, isInWishlist, isInCart, setQuickViewProduct } = useAppContext();
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
@@ -31,9 +31,8 @@ const handleCardClick = () => {
     navigate(`/product/${product.Id}`);
   };
 
-  const handleQuickView = (e) => {
+const handleQuickView = (e) => {
     e.stopPropagation();
-    const { setQuickViewProduct } = useAppContext();
     setQuickViewProduct(product);
   };
 
