@@ -90,7 +90,7 @@ e.stopPropagation();
         </div>
         
         {/* Stock Status Badge */}
-        <div className="absolute top-3 right-3">
+<div className="absolute top-12 left-3">
           <Badge variant={stockInfo.variant} size="sm" className="font-semibold shadow-md">
             {stockInfo.status}
           </Badge>
