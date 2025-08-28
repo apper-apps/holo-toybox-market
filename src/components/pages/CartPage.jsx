@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { useAppContext } from "@/hooks/useAppContext";
 import { toast } from "react-toastify";
 import CartItem from "@/components/molecules/CartItem";
@@ -9,11 +10,11 @@ import Card from "@/components/atoms/Card";
 import ApperIcon from "@/components/ApperIcon";
 
 const CartPage = () => {
+  const navigate = useNavigate();
   const { cart, cartTotal, cartItemCount, clearCart, mode } = useAppContext();
 
   const handleCheckout = () => {
-    toast.success("Order placed successfully! 🎉");
-    clearCart();
+    navigate("/checkout");
   };
 
   const handleClearCart = () => {
@@ -159,7 +160,7 @@ const CartPage = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <Button
+<Button
                     onClick={handleCheckout}
                     variant="primary"
                     size="lg"

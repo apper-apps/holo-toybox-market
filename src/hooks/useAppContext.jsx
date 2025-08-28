@@ -7,10 +7,30 @@ const initialState = {
   cart: [],
   wishlist: [],
   searchQuery: "",
-selectedCategory: "all",
+  selectedCategory: "all",
   selectedAgeGroups: [],
   priceRange: [0, 200],
   quickViewProduct: null,
+  checkoutData: {
+    address: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      street: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      country: ""
+    },
+    payment: {
+      method: "",
+      cardNumber: "",
+      expiryDate: "",
+      cvv: "",
+      cardName: ""
+    }
+  }
 };
 
 function appReducer(state, action) {
@@ -98,7 +118,7 @@ function appReducer(state, action) {
     case "SET_PRICE_RANGE": {
       return { ...state, priceRange: action.payload };
     }
-case "CLEAR_CART": {
+    case "CLEAR_CART": {
       return { ...state, cart: [] };
     }
     case "SET_QUICK_VIEW_PRODUCT": {
@@ -106,6 +126,34 @@ case "CLEAR_CART": {
     }
     case "CLOSE_QUICK_VIEW": {
       return { ...state, quickViewProduct: null };
+    }
+    case "UPDATE_CHECKOUT_DATA": {
+      return { ...state, checkoutData: action.payload };
+    }
+    case "CLEAR_CHECKOUT_DATA": {
+      return { 
+        ...state, 
+        checkoutData: {
+          address: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            street: "",
+            city: "",
+            state: "",
+            zipCode: "",
+            country: ""
+          },
+          payment: {
+            method: "",
+            cardNumber: "",
+            expiryDate: "",
+            cvv: "",
+            cardName: ""
+          }
+        }
+      };
     }
     default:
       return state;
@@ -147,7 +195,7 @@ export function AppProvider({ children }) {
     }
   }, []);
 
-  const value = {
+const value = {
     ...state,
     dispatch,
     // Helper functions
@@ -158,12 +206,14 @@ export function AppProvider({ children }) {
     approveWishlistItem: (productId) => dispatch({ type: "APPROVE_WISHLIST_ITEM", payload: productId }),
     setMode: (mode) => dispatch({ type: "SET_MODE", payload: mode }),
     setSearchQuery: (query) => dispatch({ type: "SET_SEARCH_QUERY", payload: query }),
-setCategory: (category) => dispatch({ type: "SET_CATEGORY", payload: category }),
+    setCategory: (category) => dispatch({ type: "SET_CATEGORY", payload: category }),
     setAgeGroups: (ageGroups) => dispatch({ type: "SET_AGE_GROUPS", payload: ageGroups }),
     setPriceRange: (range) => dispatch({ type: "SET_PRICE_RANGE", payload: range }),
     clearCart: () => dispatch({ type: "CLEAR_CART" }),
     setQuickViewProduct: (product) => dispatch({ type: "SET_QUICK_VIEW_PRODUCT", payload: product }),
     closeQuickView: () => dispatch({ type: "CLOSE_QUICK_VIEW" }),
+    updateCheckoutData: (data) => dispatch({ type: "UPDATE_CHECKOUT_DATA", payload: data }),
+    clearCheckoutData: () => dispatch({ type: "CLEAR_CHECKOUT_DATA" }),
     // Computed values
     cartTotal: state.cart.reduce((total, item) => total + (item.product.price * item.quantity), 0),
     cartItemCount: state.cart.reduce((count, item) => count + item.quantity, 0),

@@ -10,9 +10,8 @@ const CartSidebar = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const { cart, cartTotal, cartItemCount, clearCart } = useAppContext();
 
-  const handleCheckout = () => {
-    toast.success("Order placed successfully! 🎉");
-    clearCart();
+const handleCheckout = () => {
+    navigate("/checkout");
     onClose();
   };
 
@@ -94,7 +93,7 @@ const CartSidebar = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="space-y-3">
-                  <Button
+<Button
                     onClick={handleCheckout}
                     variant="primary"
                     className="w-full flex items-center justify-center space-x-2"
