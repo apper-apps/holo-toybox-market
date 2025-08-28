@@ -16,7 +16,7 @@ const getStockStatus = (stock) => {
 
 const ProductCard = ({ product }) => {
 const navigate = useNavigate();
-  const { mode, addToCart, removeFromCart, toggleWishlist, isInWishlist, isInCart, setQuickViewProduct } = useAppContext();
+const { addToCart, removeFromCart, toggleWishlist, isInWishlist, isInCart, setQuickViewProduct } = useAppContext();
   const handleAddToCart = (e) => {
     e.stopPropagation();
     addToCart(product);
@@ -123,52 +123,40 @@ e.stopPropagation();
             ${product.price}
           </div>
           
-{mode === "parent" ? (
-            <div className="flex space-x-2">
-              <Button
-                onClick={handleAddToCart}
-                variant="primary"
-                size="sm"
-                className="flex items-center space-x-1 flex-1"
-                disabled={isInCart(product.Id)}
-              >
-                <ApperIcon 
-                  name={isInCart(product.Id) ? "Check" : "ShoppingCart"} 
-                  size={14} 
-                />
-                <span className="text-xs">
-                  {isInCart(product.Id) ? "Added" : "Add"}
-                </span>
-              </Button>
-              
-              <Button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (isInCart(product.Id)) {
-                    removeFromCart(product.Id);
-                    toast.success(`${product.name} removed from cart!`);
-                  }
-                }}
-                variant="outline"
-                size="sm"
-                className="flex items-center space-x-1 flex-1"
-                disabled={!isInCart(product.Id)}
-              >
-                <ApperIcon name="Minus" size={14} />
-                <span className="text-xs">Remove</span>
-              </Button>
-            </div>
-          ) : (
+<div className="flex space-x-2">
             <Button
-              onClick={handleQuickView}
-              variant="ghost"
+              onClick={handleAddToCart}
+              variant="primary"
               size="sm"
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-1 flex-1"
+              disabled={isInCart(product.Id)}
             >
-              <ApperIcon name="Eye" size={14} />
-              <span>Quick View</span>
+              <ApperIcon 
+                name={isInCart(product.Id) ? "Check" : "ShoppingCart"} 
+                size={14} 
+              />
+              <span className="text-xs">
+                {isInCart(product.Id) ? "Added" : "Add"}
+              </span>
             </Button>
-          )}
+            
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                if (isInCart(product.Id)) {
+                  removeFromCart(product.Id);
+                  toast.success(`${product.name} removed from cart!`);
+                }
+              }}
+              variant="outline"
+              size="sm"
+              className="flex items-center space-x-1 flex-1"
+              disabled={!isInCart(product.Id)}
+            >
+              <ApperIcon name="Minus" size={14} />
+              <span className="text-xs">Remove</span>
+            </Button>
+          </div>
         </div>
       </div>
     </motion.div>

@@ -1,16 +1,14 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useAppContext } from "@/hooks/useAppContext";
-import SearchBar from "@/components/molecules/SearchBar";
-import ModeToggle from "@/components/molecules/ModeToggle";
 import ApperIcon from "@/components/ApperIcon";
+import SearchBar from "@/components/molecules/SearchBar";
 
 const Header = ({ onCartOpen }) => {
   const location = useLocation();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { mode, cartItemCount, wishlistCount } = useAppContext();
-
   const navItems = [
     { to: "/", label: "Home", icon: "Home" },
     { to: "/category/toys", label: "Toys", icon: "Gamepad2" },
@@ -42,7 +40,6 @@ const Header = ({ onCartOpen }) => {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-6">
-            <ModeToggle />
             
             <div className="flex items-center space-x-4">
               <Link
@@ -55,23 +52,19 @@ const Header = ({ onCartOpen }) => {
                     {wishlistCount}
                   </span>
                 )}
-              </Link>
+</Link>
 
-              {mode === "parent" && (
-                <>
-                  <button
-                    onClick={onCartOpen}
-                    className="relative p-2 text-gray-600 hover:text-primary transition-colors"
-                  >
-                    <ApperIcon name="ShoppingCart" size={24} />
-                    {cartItemCount > 0 && (
-                      <span className="absolute -top-1 -right-1 bg-accent text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                        {cartItemCount}
-                      </span>
-                    )}
-</button>
-                </>
-              )}
+              <button
+                onClick={onCartOpen}
+                className="relative p-2 text-gray-600 hover:text-primary transition-colors"
+              >
+                <ApperIcon name="ShoppingCart" size={24} />
+                {cartItemCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-accent text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                    {cartItemCount}
+                  </span>
+                )}
+              </button>
             </div>
           </div>
 
@@ -121,9 +114,6 @@ const Header = ({ onCartOpen }) => {
           >
             <div className="px-4 py-6 space-y-4">
               {/* Mobile Mode Toggle */}
-              <div className="flex justify-center">
-                <ModeToggle />
-              </div>
 
               {/* Mobile Navigation */}
               <nav className="space-y-2">
@@ -162,27 +152,25 @@ const Header = ({ onCartOpen }) => {
                     )}
                   </div>
                   <span className="text-xs">Wishlist</span>
-                </Link>
+</Link>
 
-                {mode === "parent" && (
-                  <button
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      onCartOpen();
-                    }}
-                    className="flex flex-col items-center space-y-1 p-3 text-gray-600 hover:text-primary transition-colors"
-                  >
-                    <div className="relative">
-                      <ApperIcon name="ShoppingCart" size={24} />
-                      {cartItemCount > 0 && (
-                        <span className="absolute -top-1 -right-1 bg-accent text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                          {cartItemCount}
-                        </span>
-                      )}
-                    </div>
-                    <span className="text-xs">Cart</span>
-                  </button>
-                )}
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    onCartOpen();
+                  }}
+                  className="flex flex-col items-center space-y-1 p-3 text-gray-600 hover:text-primary transition-colors"
+                >
+                  <div className="relative">
+                    <ApperIcon name="ShoppingCart" size={24} />
+                    {cartItemCount > 0 && (
+                      <span className="absolute -top-1 -right-1 bg-accent text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                        {cartItemCount}
+                      </span>
+                    )}
+                  </div>
+                  <span className="text-xs">Cart</span>
+                </button>
               </div>
             </div>
           </motion.div>

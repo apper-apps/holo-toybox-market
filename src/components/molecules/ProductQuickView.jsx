@@ -12,8 +12,7 @@ const ProductQuickView = () => {
   const { 
     quickViewProduct, 
     closeQuickView, 
-    mode, 
-    addToCart, 
+addToCart, 
     toggleWishlist, 
     isInWishlist, 
     isInCart 
@@ -177,50 +176,32 @@ const ProductQuickView = () => {
 
               {/* Actions */}
               <div className="space-y-4">
-                {mode === "parent" ? (
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Button
-                      onClick={handleAddToCart}
-                      variant={isInCart(product.Id) ? "success" : "primary"}
-                      size="lg"
-                      className="flex-1 flex items-center justify-center space-x-2"
-                    >
-                      <ApperIcon 
-                        name={isInCart(product.Id) ? "Check" : "ShoppingCart"} 
-                        size={18} 
-                      />
-                      <span>
-                        {isInCart(product.Id) ? "Added to Cart" : "Add to Cart"}
-                      </span>
-                    </Button>
-                    
-                    <Button
-                      onClick={handleViewFullDetails}
-                      variant="outline"
-                      size="lg"
-                      className="flex items-center justify-center space-x-2"
-                    >
-                      <ApperIcon name="ExternalLink" size={18} />
-                      <span>Full Details</span>
-                    </Button>
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    <Button
-                      onClick={handleViewFullDetails}
-                      variant="primary"
-                      size="lg"
-                      className="w-full flex items-center justify-center space-x-2"
-                    >
-                      <ApperIcon name="Eye" size={18} />
-                      <span>View Full Details</span>
-                    </Button>
-                    
-                    <div className="text-center text-sm text-gray-600">
-                      <p>Switch to Parent Mode to add items to cart</p>
-                    </div>
-                  </div>
-                )}
+<div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    onClick={handleAddToCart}
+                    variant={isInCart(product.Id) ? "success" : "primary"}
+                    size="lg"
+                    className="flex-1 flex items-center justify-center space-x-2"
+                  >
+                    <ApperIcon 
+                      name={isInCart(product.Id) ? "Check" : "ShoppingCart"} 
+                      size={18} 
+                    />
+                    <span>
+                      {isInCart(product.Id) ? "Added to Cart" : "Add to Cart"}
+                    </span>
+                  </Button>
+                  
+                  <Button
+                    onClick={handleViewFullDetails}
+                    variant="outline"
+                    size="lg"
+                    className="flex items-center justify-center space-x-2"
+                  >
+                    <ApperIcon name="ExternalLink" size={18} />
+                    <span>Full Details</span>
+                  </Button>
+                </div>
               </div>
 
               {/* Additional Info */}

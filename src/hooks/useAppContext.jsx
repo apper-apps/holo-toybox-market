@@ -3,7 +3,6 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 const AppContext = createContext();
 
 const initialState = {
-  mode: "parent", // parent or kid
   cart: [],
   wishlist: [],
   searchQuery: "",
@@ -34,11 +33,7 @@ const initialState = {
 };
 
 function appReducer(state, action) {
-  switch (action.type) {
-    case "SET_MODE": {
-      const newMode = action.payload;
-      return { ...state, mode: newMode };
-    }
+switch (action.type) {
     case "ADD_TO_CART": {
       const { product, quantity = 1 } = action.payload;
       const existingItem = state.cart.find(item => item.productId === product.Id);
@@ -88,8 +83,7 @@ function appReducer(state, action) {
         return { ...state, wishlist: updatedWishlist };
       } else {
         const wishlistItem = {
-          productId: product.Id,
-          addedBy: state.mode,
+productId: product.Id,
           addedAt: new Date().toISOString(),
           parentApproved: state.mode === "parent",
           product
@@ -166,11 +160,10 @@ export function AppProvider({ children }) {
   // Save to localStorage
   useEffect(() => {
     localStorage.setItem("toybox-state", JSON.stringify({
-      mode: state.mode,
-      cart: state.cart,
+cart: state.cart,
       wishlist: state.wishlist
     }));
-  }, [state.mode, state.cart, state.wishlist]);
+}, [state.cart, state.wishlist]);
 
   // Load from localStorage
   useEffect(() => {
@@ -178,7 +171,6 @@ export function AppProvider({ children }) {
     if (saved) {
       try {
         const parsedState = JSON.parse(saved);
-        if (parsedState.mode) dispatch({ type: "SET_MODE", payload: parsedState.mode });
         if (parsedState.cart) {
           parsedState.cart.forEach(item => {
             dispatch({ type: "ADD_TO_CART", payload: { product: item.product, quantity: item.quantity } });
@@ -204,7 +196,6 @@ const value = {
     removeFromCart: (productId) => dispatch({ type: "REMOVE_FROM_CART", payload: productId }),
     toggleWishlist: (product) => dispatch({ type: "TOGGLE_WISHLIST", payload: product }),
     approveWishlistItem: (productId) => dispatch({ type: "APPROVE_WISHLIST_ITEM", payload: productId }),
-    setMode: (mode) => dispatch({ type: "SET_MODE", payload: mode }),
     setSearchQuery: (query) => dispatch({ type: "SET_SEARCH_QUERY", payload: query }),
     setCategory: (category) => dispatch({ type: "SET_CATEGORY", payload: category }),
     setAgeGroups: (ageGroups) => dispatch({ type: "SET_AGE_GROUPS", payload: ageGroups }),

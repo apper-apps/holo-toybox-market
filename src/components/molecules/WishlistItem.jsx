@@ -1,14 +1,15 @@
-import { useAppContext } from "@/hooks/useAppContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
+import React from "react";
+import { useAppContext } from "@/hooks/useAppContext";
+import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
 import Badge from "@/components/atoms/Badge";
-import ApperIcon from "@/components/ApperIcon";
-import { motion } from "framer-motion";
 
 const WishlistItem = ({ item }) => {
   const navigate = useNavigate();
-  const { mode, addToCart, toggleWishlist, approveWishlistItem } = useAppContext();
+  const { addToCart, toggleWishlist, mode, approveWishlistItem } = useAppContext();
 
   const handleAddToCart = () => {
     addToCart(item.product);
@@ -21,8 +22,10 @@ const WishlistItem = ({ item }) => {
   };
 
   const handleApprove = () => {
-    approveWishlistItem(item.productId);
-    toast.success("Item approved! ✅");
+    if (approveWishlistItem) {
+      approveWishlistItem(item.productId);
+      toast.success("Item approved! ✅");
+    }
   };
 
   const handleViewProduct = () => {
@@ -54,11 +57,6 @@ const WishlistItem = ({ item }) => {
         </div>
 
         <div className="absolute top-3 right-3 space-y-2">
-          {!item.parentApproved && item.addedBy === "kid" && mode === "parent" && (
-            <Badge variant="warning" size="sm">
-              Needs Approval
-            </Badge>
-          )}
           {item.parentApproved && (
             <Badge variant="success" size="sm">
               ✓ Approved
@@ -90,61 +88,37 @@ const WishlistItem = ({ item }) => {
           </Badge>
         </div>
 
-        <div className="flex items-center justify-between pt-2 space-x-2">
+<div className="flex items-center justify-between pt-2 space-x-2">
           {mode === "parent" ? (
-            <>
-              {!item.parentApproved && item.addedBy === "kid" ? (
-                <div className="flex space-x-2 w-full">
-                  <Button
-                    onClick={handleApprove}
-                    variant="success"
-                    size="sm"
-                    className="flex-1 flex items-center justify-center space-x-1"
-                  >
-                    <ApperIcon name="Check" size={14} />
-                    <span>Approve</span>
-                  </Button>
-                  <Button
-                    onClick={handleRemove}
-                    variant="outline"
-                    size="sm"
-                    className="flex items-center justify-center"
-                  >
-                    <ApperIcon name="X" size={14} />
-                  </Button>
-                </div>
-              ) : (
-                <div className="flex space-x-2 w-full">
-                  <Button
-                    onClick={handleAddToCart}
-                    variant="primary"
-                    size="sm"
-                    className="flex-1 flex items-center justify-center space-x-1"
-                  >
-                    <ApperIcon name="ShoppingCart" size={14} />
-                    <span>Add to Cart</span>
-                  </Button>
-                  <Button
-                    onClick={handleRemove}
-                    variant="outline"
-                    size="sm"
-                    className="flex items-center justify-center"
-                  >
-                    <ApperIcon name="Heart" size={14} />
-                  </Button>
-                </div>
-              )}
-            </>
-          ) : (
             <div className="flex space-x-2 w-full">
               <Button
-                onClick={handleViewProduct}
+                onClick={handleAddToCart}
                 variant="primary"
                 size="sm"
                 className="flex-1 flex items-center justify-center space-x-1"
               >
-                <ApperIcon name="Eye" size={14} />
-                <span>View Details</span>
+                <ApperIcon name="ShoppingCart" size={14} />
+                <span>Add to Cart</span>
+              </Button>
+              <Button
+                onClick={handleRemove}
+                variant="outline"
+                size="sm"
+                className="flex items-center justify-center"
+              >
+                <ApperIcon name="Heart" size={14} fill="currentColor" />
+              </Button>
+            </div>
+          ) : (
+            <div className="flex space-x-2 w-full">
+              <Button
+                onClick={handleApprove}
+                variant="success"
+                size="sm"
+                className="flex-1"
+                disabled={item.parentApproved}
+              >
+                {item.parentApproved ? "Approved" : "Approve"}
               </Button>
               <Button
                 onClick={handleRemove}

@@ -11,7 +11,6 @@ import ApperIcon from "@/components/ApperIcon";
 const HomePage = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { mode } = useAppContext();
 
   useEffect(() => {
     const loadFeaturedProducts = async () => {
@@ -72,9 +71,6 @@ const HomePage = () => {
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-3xl mx-auto space-y-6">
-          <Badge variant="primary" size="md" className="mb-4">
-            {mode === "parent" ? "🛡️ Parent Mode Active" : "❤️ Kid Mode Active"}
-          </Badge>
           
           <h1 className="text-4xl lg:text-6xl font-display font-bold text-gray-800 leading-tight">
             Discover Amazing{" "}
@@ -84,10 +80,7 @@ const HomePage = () => {
           </h1>
           
           <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
-            {mode === "parent" 
-              ? "Shop safely for high-quality educational toys and supplies. Every item is age-appropriate and safety certified."
-              : "Explore colorful toys and games! Add your favorites to your wishlist for grown-ups to see."
-            }
+Shop safely for high-quality educational toys and supplies. Every item is age-appropriate and safety certified.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-6">

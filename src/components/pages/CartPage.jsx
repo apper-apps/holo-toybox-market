@@ -1,18 +1,18 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { useAppContext } from "@/hooks/useAppContext";
 import { toast } from "react-toastify";
+import React from "react";
+import { useAppContext } from "@/hooks/useAppContext";
+import ApperIcon from "@/components/ApperIcon";
 import CartItem from "@/components/molecules/CartItem";
-import Empty from "@/components/ui/Empty";
+import Card from "@/components/atoms/Card";
 import Button from "@/components/atoms/Button";
 import Badge from "@/components/atoms/Badge";
-import Card from "@/components/atoms/Card";
-import ApperIcon from "@/components/ApperIcon";
+import Empty from "@/components/ui/Empty";
 
 const CartPage = () => {
-  const navigate = useNavigate();
-  const { cart, cartTotal, cartItemCount, clearCart, mode } = useAppContext();
-
+const navigate = useNavigate();
+  const { cart, cartTotal, cartItemCount, removeFromCart, updateCartQuantity, clearCart, mode } = useAppContext();
   const handleCheckout = () => {
     navigate("/checkout");
   };
@@ -28,18 +28,6 @@ const CartPage = () => {
   const shipping = subtotal > 50 ? 0 : 5.99; // Free shipping over $50
   const total = subtotal + tax + shipping;
 
-  if (mode !== "parent") {
-    return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Empty 
-          title="Cart not available in Kid Mode"
-          description="Switch to Parent Mode to view and manage your shopping cart"
-          actionText="Go to Wishlist"
-          actionLink="/wishlist"
-        />
-      </div>
-    );
-  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -50,9 +38,6 @@ const CartPage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Badge variant="primary" size="md" className="mb-4">
-          🛡️ Parent Mode
-        </Badge>
         
         <div className="flex items-center justify-center space-x-4 mb-4">
           <div className="w-16 h-16 bg-gradient-to-r from-accent to-orange-400 rounded-2xl flex items-center justify-center text-white shadow-lg">
